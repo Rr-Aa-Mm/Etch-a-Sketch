@@ -1,0 +1,60 @@
+/* FLEX DECLARATIONS */
+
+.flex {
+    display: flex;
+}
+
+.row {
+    flex-direction: row;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.alignItemsCenter { /* this aligns along the cross axis */
+    align-items: center;
+}
+
+.justifyContentCenter { /* this positions along the main axis */
+    justify-content: center;
+}
+
+.alignSpaceEvenly {
+    align-content: space-evently;
+}
+
+.justifySpaceEvenly {
+    justify-content: space-evenly;
+}
+
+#myGrid {
+}
+
+.square {
+    height: 10px;
+    width: 10px;
+}
+
+.spine {
+    height: 10px;
+    width: 10px;
+}
+
+#pageContainer {
+    background-color: aliceblue;
+}
+
+.lobster {
+    font-family: lobster;
+}
+
+.buffer {
+    padding: 200px;
+    margin: auto;
+    padding-bottom: 200px;
+}
+
+.flex1 {
+    flex: 1;
+  }
