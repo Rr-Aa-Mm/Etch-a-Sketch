@@ -32,8 +32,16 @@
 }
 
 .square {
-    height: 10px;
-    width: 10px;
+    height: 3px;
+    width: 3px;
+}
+
+.changeColor:hover {
+    background-color: hotpink;
+}
+
+.changeColor {
+    background-color: gainsboro;
 }
 
 .spine {

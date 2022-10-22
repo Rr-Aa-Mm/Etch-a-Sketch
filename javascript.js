@@ -1,20 +1,24 @@
 gridBuilder();
 function gridBuilder() {
-    let gridContainer = document.querySelector('#myGrid');
-    for (let i = 0; i < 16; i++) {
-        let gridColumn = document.createElement('div');
+    let gridContainer = document.querySelector('#myGrid'); //build the grid container
+    for (let i = 0; i < 100; i++) {
+        let gridColumn = document.createElement('div'); // build a column, 16 times
         gridColumn.className = "flex row";
-        for (let i = 0; i < 16; i++) {
-            let gridVert = document.createElement('div');
-            gridVert.className = "flex column square center";
-            gridColumn.appendChild(gridVert);
+        for (let i = 0; i < 100; i++) {
+            let gridSquare = document.createElement('div'); //create a square, 16 times
+            gridSquare.className = "flex column square center changeColor";
+            gridSquare.addEventListener("mouseover", function() {
+                console.log(gridSquare);
+                gridSquare.style.backgroundColor = "hotpink";
+            });
+            gridColumn.appendChild(gridSquare); //append each built square into the built column
         }
-        gridContainer.appendChild(gridColumn);
-        addBorders();
+        gridContainer.appendChild(gridColumn); //append each built column (each containing 16 squares, into the grid container
+        //addBorders();
     }
 }
 
-addBorders("div");
+//addBorders("div");
 function addBorders(divClass) {
     console.log("addBorders() is running now");
     let selectedDivs = document.querySelectorAll(divClass);
