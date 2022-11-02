@@ -1,6 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -13,7 +14,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-a-Sketch</title>
+    <!--
     <link rel="icon" type="image/x-icon" href="/Art/garnet_gem.png">
+    -->
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,15 +25,22 @@
   </head>
   
   <body>
-  <div id="pageContainer" class="flex column alignItemsCenter">
-
-    <h1 class="lobster">Ross, Make Lasagna!</h1>
-    
-    <div id="myGrid" className="flex buffer"></div>
-    <h5 class="lobster">© Ram 2022</h5>
+  <div class="flex column justifyContentCenter main">
+    <div class="flex column alignItemsCenter">
+      <h1 class="lobster">Ram's Etch-a-Sketch</h1>
+    </div>
+    <div id="pageContainer" class="flex row justifyContentCenter">
+      <div id="myGrid">
+      </div>
+      <div class="flex column justifyContentCenter alignItemsCenter padded" id="buttonContainer">
+      </div>
+      
+    </div>
+    <h5 class="flex lobster justifyContentCenter">© Ram 2022</h5>
   </div>
    <script src="javascript.js"></script>
   </body>
+
   
 </html>
 

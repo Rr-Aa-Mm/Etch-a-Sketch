@@ -1,3 +1,27 @@
+let selectedColor = "#65ff00";
+
+colorButtonBuilder();
+function colorButtonBuilder() {
+    let buttonContainer = document.getElementById("buttonContainer");
+    let colors = ["Slime Green", "Mega Purple", "Blue Lightning", "Laser Gold", "Vampire Red"];
+    let colorsHEX = ["#65ff00", "#FF00FF", "#7FDBFF", "#FFDC00", "#FF4136"];
+    for (let i =0; i < colors.length; i++) {
+        let colorButton = document.createElement("button");
+        colorButton.classList.add("colorButton");
+        colorButton.name = colors[i];
+        colorButton.value = colors[i];
+        colorButton.innerText = colors[i];
+        colorButton.style.backgroundColor = colorsHEX[i];
+        colorButton.addEventListener("click", function() {
+            selectedColor = colorButton.style.backgroundColor;
+            console.log("color updated to" + colorButton.style.backgroundColor);
+        })
+        console.log(colorButton);
+        buttonContainer.appendChild(colorButton);
+
+    }
+}
+
 gridBuilder();
 function gridBuilder() {
     let gridContainer = document.querySelector('#myGrid'); //build the grid container
@@ -7,13 +31,77 @@ function gridBuilder() {
         for (let i = 0; i < 100; i++) {
             let gridSquare = document.createElement('div'); //create a square, 16 times
             gridSquare.className = "flex column square center changeColor";
+            gridSquare.id = i;
             gridSquare.addEventListener("mouseover", function() {
-                console.log(gridSquare);
-                gridSquare.style.backgroundColor = "hotpink";
+                //console.log(gridSquare);
+                gridSquare.style.backgroundColor = selectedColor;
             });
+            /*
+            gridSquare.addEventListener("touchmove", function() {
+                console.log("touchmove: " + gridSquare);
+                gridSquare.style.backgroundColor = "green";
+            });
+            */
+           /*
+            gridSquare.addEventListener("touchstart", e => {
+                [...e.changedTouches].forEach(touch => {
+                    const dot = document.createElement('div');
+                    dot.classList.add("dot");
+                    dot.style.top = `${touch.pageY}px`;
+                    dot.style.left = `${touch.pageX}px`;
+                    dot.id = touch.identifier;
+                    gridSquare.append(dot);
+                })
+                console.log(e)
+            });
+            
+            gridSquare.addEventListener("touchmove", e=> {
+                [...e.changedTouches].forEach(touch => {
+                    const dot = document.createElement('div');
+                    dot.classList.add("dot");
+                    dot.style.top = `${touch.pageY}px`;
+                    dot.style.left = `${touch.pageX}px`;
+                    dot.id = touch.identifier;
+                    gridSquare.append(dot);
+                })
+            })
+            */
+            gridSquare.addEventListener("touchmove", e=> {
+                //console.log([...e.changedTouches]);
+                console.log([...e.changedTouches]);
+                [...e.changedTouches].forEach(touch => {
+                    /*
+                    console.log(e);
+                    const eventTarget = e.target;
+                    eventTarget.classList.add("changeToRed");
+                    console.log(eventTarget);
+                    */
+
+                    /*
+                    const dot = document.createElement('div');
+                    dot.classList.add("dot");
+                    dot.style.top = `${touch.pageY}px`;
+                    dot.style.left = `${touch.pageX}px`;
+                    dot.id = touch.identifier;
+                    gridSquare.append(dot);
+                    */
+                })
+            })
+
+            /*
+            gridSquare.addEventListener("touchend", e => {
+                [...e.changedTouches].forEach(touch => {
+                    const dot = document.getElementById(touch.identifier);
+                    dot.remove();
+                })
+            });
+            */
+
             gridColumn.appendChild(gridSquare); //append each built square into the built column
         }
         gridContainer.appendChild(gridColumn); //append each built column (each containing 16 squares, into the grid container
+
+        
         //addBorders();
     }
 }
